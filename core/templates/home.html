@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="relative overflow-hidden dot-grid">
+  <div class="max-w-7xl mx-auto px-6 lg:px-16 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+
+    <div class="lg:col-span-7 space-y-6" data-aos="fade-up">
+      <p class="text-sm font-semibold tracking-wide" style="color:var(--accent);">
+        IT Automation &amp; ERP Developer · Data Scientist
+      </p>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-[3.4rem] font-display font-bold leading-[1.05]" style="color:var(--text);">
+        Muhammad Shaheem ur Rehan
+      </h1>
+
+      <p class="text-base lg:text-lg max-w-xl leading-relaxed" style="color:var(--text-muted);">
+        I build back-end systems that replace manual work with something that just runs — Django/ERP
+        applications on MS SQL Server, automation scripts, and the dashboards and models that turn
+        the data those systems produce into something worth acting on.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-3 pt-2">
+        <a href="{% url 'contact' %}"
+           class="px-6 py-3 rounded-lg font-semibold text-sm transition hover:opacity-90"
+           style="background-color:var(--accent); color:#0a0f10;">
+          Start a project
+        </a>
+        <a href="{% url 'projects' %}"
+           class="px-6 py-3 rounded-lg font-semibold text-sm border transition hover:opacity-80"
+           style="border-color:var(--border); color:var(--text);">
+          See my work
+        </a>
+      </div>
+
+      <div class="flex items-center gap-3 pt-4">
+        <a href="mailto:shaheemurrehan2005@gmail.com" title="Email"
+           class="w-10 h-10 rounded-lg flex items-center justify-center font-bold transition hover:opacity-80"
+           style="background-color:var(--surface-muted); color:var(--text);">@</a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" title="GitHub"
+           class="w-10 h-10 rounded-lg flex items-center justify-center transition hover:opacity-80"
+           style="background-color:var(--surface-muted); color:var(--text);">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/muhammad-shaheem-ur-rehan-90a5a9371/" target="_blank" rel="noopener noreferrer" title="LinkedIn"
+           class="w-10 h-10 rounded-lg flex items-center justify-center font-bold transition hover:opacity-80"
+           style="background-color:var(--surface-muted); color:var(--text);">in</a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-5 flex justify-center lg:justify-end" data-aos="fade-up" data-aos-delay="100">
+      <div class="relative w-60 sm:w-72 lg:w-80">
+        <div class="absolute -inset-2 rounded-3xl" style="background-color:var(--accent-soft);"></div>
+        <div class="relative rounded-3xl overflow-hidden border aspect-square" style="border-color:var(--border); background-color:var(--panel);">
+          <img
+            src="{% static 'core/images/profile.png' %}"
+            alt="Muhammad Shaheem ur Rehan"
+            class="w-full h-full object-cover select-none"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="hidden w-full h-full items-center justify-center text-5xl font-display font-bold"
+               style="background-color:var(--surface-muted); color:var(--accent);">
+            MS
+          </div>
+        </div>
+        <div class="absolute -bottom-5 -left-5 rounded-xl border px-4 py-3 shadow-sm"
+             style="background-color:var(--surface); border-color:var(--border);">
+          <p class="text-xs font-semibold" style="color:var(--text);">Django Developer</p>
+          <p class="text-[11px]" style="color:var(--text-muted);">Developer Zone, Sialkot</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="py-16 lg:py-20 border-t" style="border-color:var(--border);">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="mb-12" data-aos="fade-up">
+      <h2 class="text-2xl lg:text-3xl font-display font-bold" style="color:var(--text);">What I can help with</h2>
+      <p class="mt-2 max-w-xl" style="color:var(--text-muted);">Three areas I keep coming back to, on real production systems.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="100">
+      <div class="rounded-2xl border p-6" style="border-color:var(--border); background-color:var(--surface);">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background-color:var(--accent-soft); color:var(--accent);">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg mb-2" style="color:var(--text);">IT automation</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted);">
+          Python scripts and scheduled jobs that take over repetitive manual work — data entry,
+          notifications, report generation — so people spend time on things that need a human.
+        </p>
+      </div>
+
+      <div class="rounded-2xl border p-6" style="border-color:var(--border); background-color:var(--surface);">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background-color:var(--accent-soft); color:var(--accent);">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V7zM4 11h16"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg mb-2" style="color:var(--text);">Django &amp; ERP development</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted);">
+          Full-stack business applications on Django with MS SQL Server behind them — attendance,
+          inventory, and workflow systems that have been used at market level, not just in a demo.
+        </p>
+      </div>
+
+      <div class="rounded-2xl border p-6" style="border-color:var(--border); background-color:var(--surface);">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background-color:var(--accent-soft); color:var(--accent);">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 19V9m6 10V5m6 14v-7"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg mb-2" style="color:var(--text);">Data analytics &amp; reporting</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted);">
+          Turning raw operational data into something readable — Pandas/NumPy for the heavy lifting,
+          Power BI and SQL for the dashboards people actually check.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="py-16 lg:py-20 border-t" style="border-color:var(--border); background-color:var(--panel);">
+  <div class="max-w-4xl mx-auto px-6" data-aos="fade-up">
+    <h2 class="text-2xl lg:text-3xl font-display font-bold mb-6" style="color:var(--text);">About me</h2>
+
+    <p class="text-base lg:text-lg leading-relaxed mb-6" style="color:var(--text-muted);">
+      I'm a 7th-semester Information Technology undergraduate at the University of Gujrat with a solid base
+      in software engineering fundamentals and relational database design. Day to day, I work at the
+      intersection of two things: building the systems a business runs on, and making sense of the data
+      those systems produce.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+      <div class="rounded-xl border p-5" style="border-color:var(--border); background-color:var(--surface);">
+        <h3 class="font-semibold mb-2" style="color:var(--accent);">As an IT Automation &amp; ERP developer</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted);">
+          I build Django/ERP applications on Microsoft SQL Server and the automation scripts around them —
+          things like the WhatsApp-integrated attendance system I run at Developer Zone, which replaced a
+          manual check-in process with automated logging, leave workflows, and scheduled reporting.
+        </p>
+      </div>
+      <div class="rounded-xl border p-5" style="border-color:var(--border); background-color:var(--surface);">
+        <h3 class="font-semibold mb-2" style="color:var(--accent-2);">As a data scientist</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted);">
+          I use Pandas, NumPy, and Power BI to turn raw operational data into dashboards people actually
+          check, and I train models with scikit-learn for practical, well-defined problems — classification,
+          regression, and lately conversational interfaces over structured data.
+        </p>
+      </div>
+    </div>
+
+    <p class="text-base lg:text-lg leading-relaxed" style="color:var(--text-muted);">
+      Both sides feed each other: the systems I build generate the data I analyze, and what I learn from
+      that data usually points back to something worth automating next.
+    </p>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="py-16 lg:py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-2xl lg:text-3xl font-display font-bold mb-10" style="color:var(--text);" data-aos="fade-up">Core skills</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
+      {% for group in skill_groups %}
+      <div>
+        <h3 class="text-sm font-semibold mb-3" style="color:var(--accent);">{{ group.title }}</h3>
+        <div class="flex flex-wrap gap-2">
+          {% for item in group.items %}
+          <span class="text-xs px-3 py-1.5 rounded-md border" style="border-color:var(--border); color:var(--text-muted); background-color:var(--surface);">{{ item }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Experience &amp; Credentials | Muhammad Shaheem ur Rehan{% endblock %}
+
+{% block content %}
+<section class="py-16 lg:py-20 max-w-4xl mx-auto px-6">
+  <div class="mb-12" data-aos="fade-up">
+    <h1 class="text-2xl lg:text-3xl font-display font-bold mb-2" style="color:var(--text);">Experience &amp; credentials</h1>
+    <p style="color:var(--text-muted);">Professional trajectory, academics, and industry certifications.</p>
+  </div>
+
+  <div class="relative border-l ml-3 sm:ml-4 space-y-12" style="border-color:var(--border);" data-aos="fade-up">
+
+    <div class="relative pl-6 sm:pl-8">
+      <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full" style="background-color:var(--accent);"></div>
+      <span class="text-xs font-semibold uppercase tracking-wider" style="color:var(--accent);">July 2026 – Present</span>
+      <h3 class="text-lg lg:text-xl font-bold mt-1" style="color:var(--text);">Django Developer</h3>
+      <p class="text-sm mb-2" style="color:var(--text-muted);">Developer Zone • Sialkot, Pakistan</p>
+      <ul class="list-disc list-inside text-sm space-y-1" style="color:var(--text-muted);">
+        <li>Develop and maintain back-end ERP-style applications in Django, backed by Microsoft SQL Server.</li>
+        <li>Design and consume RESTful APIs for real-time frontend/backend communication.</li>
+        <li>Optimize SQL queries and relational schemas for high-performance execution.</li>
+        <li>Work across the full development lifecycle on enterprise applications that have shipped to market, not just internal demos.</li>
+      </ul>
+    </div>
+
+    <div class="relative pl-6 sm:pl-8">
+      <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full" style="background-color:var(--accent-2);"></div>
+      <span class="text-xs font-semibold uppercase tracking-wider" style="color:var(--accent-2);">2023 – 2027</span>
+      <h3 class="text-lg lg:text-xl font-bold mt-1" style="color:var(--text);">BS in Information Technology (7th Semester)</h3>
+      <p class="text-sm" style="color:var(--text-muted);">University of Gujrat</p>
+    </div>
+
+    <div class="relative pl-6 sm:pl-8">
+      <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full" style="background-color:var(--accent-2);"></div>
+      <span class="text-xs font-semibold uppercase tracking-wider" style="color:var(--accent-2);">2021 – 2023</span>
+      <h3 class="text-lg lg:text-xl font-bold mt-1" style="color:var(--text);">FSC (Pre-Engineering)</h3>
+      <p class="text-sm" style="color:var(--text-muted);">Punjab College, Pasrur</p>
+    </div>
+  </div>
+
+  <div class="mt-16" data-aos="fade-up">
+    <h2 class="text-xl lg:text-2xl font-bold mb-6" style="color:var(--text);">Certifications</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {% for cert in certifications %}
+      <div class="p-4 rounded-xl border" style="border-color:var(--border); background-color:var(--surface);">
+        <p class="font-semibold text-sm" style="color:var(--text);">{{ cert.title }}</p>
+        <p class="text-xs" style="color:var(--text-muted);">{{ cert.issuer }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

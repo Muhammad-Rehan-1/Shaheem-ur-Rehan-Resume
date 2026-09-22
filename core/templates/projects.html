@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Projects | Muhammad Shaheem ur Rehan{% endblock %}
+
+{% block content %}
+<section class="py-16 lg:py-20 max-w-6xl mx-auto px-6">
+  <div class="mb-14" data-aos="fade-up">
+    <h1 class="text-2xl lg:text-3xl font-display font-bold mb-2" style="color:var(--text);">Featured projects</h1>
+    <p style="color:var(--text-muted);">Automation, ERP systems, dashboards, and machine learning — grouped by the kind of problem each one solves.</p>
+  </div>
+
+  {% for group in project_groups %}
+  <div class="mb-14 last:mb-0" data-aos="fade-up">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="w-2.5 h-2.5 rounded-full" style="background-color:{{ group.color }};"></span>
+      <h2 class="text-lg lg:text-xl font-semibold" style="color:var(--text);">{{ group.label }}</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {% for project in group.projects %}
+      <div class="rounded-2xl border p-6 sm:p-8" style="border-color:var(--border); background-color:var(--surface);">
+        <div class="flex flex-wrap gap-2 mb-4">
+          {% for tag in project.tags %}
+          <span class="text-xs px-2.5 py-1 rounded-md border" style="background-color:{{ group.soft }}; color:{{ group.color }}; border-color:{{ group.color }};">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <h3 class="text-lg font-bold mb-3" style="color:var(--text);">{{ project.name }}</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted);">{{ project.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+
+</section>
+{% endblock %}

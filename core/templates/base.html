@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>{% block title %}Muhammad Shaheem ur Rehan | Django &amp; Automation Developer{% endblock %}</title>
+  <meta name="description" content="{% block description %}Django/ERP developer and IT automation specialist — MS SQL, REST APIs, and data analytics.{% endblock %}">
+
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      var isDark = saved ? saved === 'dark' : !prefersLight;
+      document.documentElement.classList.toggle('dark', isDark);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { display: ['Space Grotesk', 'sans-serif'], sans: ['Inter', 'sans-serif'] } } },
+    };
+  </script>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #F5F3EE;
+      --panel: #ECE8DF;
+      --surface: #FFFFFF;
+      --surface-muted: #EFEDE7;
+      --text: #14161A;
+      --text-muted: #5B5E66;
+      --border: #E1DED4;
+      --accent: #0F8B8D;
+      --accent-strong: #0B6C6E;
+      --accent-2: #3557A6;
+      --accent-3: #A8671E;
+      --accent-soft: rgba(15,139,141,0.10);
+    }
+    html.dark {
+      --bg: #10141B;
+      --panel: #1B2230;
+      --surface: #161B24;
+      --surface-muted: #1E2530;
+      --text: #F2F1ED;
+      --text-muted: #9CA3AF;
+      --border: #2A313D;
+      --accent: #35C9C1;
+      --accent-strong: #24A39C;
+      --accent-2: #7C8CFF;
+      --accent-3: #E3B341;
+      --accent-soft: rgba(53,201,193,0.12);
+    }
+    body { background-color: var(--bg); color: var(--text); }
+    ::selection { background: var(--accent); color: #0a0a0a; }
+    .dot-grid {
+      background-image: radial-gradient(var(--border) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased" style="background-color:var(--bg); color:var(--text);">
+
+  {% include 'navbar.html' %}
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include 'footer.html' %}
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 600 });
+
+    document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    });
+
+    var menuBtn = document.getElementById('mobile-menu-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', function () {
+        mobileMenu.classList.toggle('hidden');
+      });
+      mobileMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { mobileMenu.classList.add('hidden'); });
+      });
+    }
+  </script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
