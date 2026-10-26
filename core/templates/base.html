@@ -117,6 +117,244 @@
     animation: none;
   }
 }
+
+/* ================================
+   GLASSMORPHISM MOBILE SIDEBAR
+================================ */
+
+/* Light Theme */
+
+.glass-sidebar {
+    background: rgba(245, 243, 238, 0.78);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    border-left: 1px solid rgba(255, 255, 255, 0.35);
+
+    box-shadow:
+        -15px 0 50px rgba(0, 0, 0, 0.12),
+        inset 1px 0 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Dark Theme */
+
+html.dark .glass-sidebar {
+    background: rgba(22, 27, 36, 0.78);
+
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        -15px 0 60px rgba(0, 0, 0, 0.45),
+        inset 1px 0 0 rgba(255, 255, 255, 0.04);
+}
+
+
+/* Sidebar Navigation Links */
+
+.glass-sidebar .sidebar-link {
+    transition: all 0.25s ease;
+}
+
+.glass-sidebar .sidebar-link:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+    transform: translateX(4px);
+}
+
+
+/* Active Navigation */
+
+.glass-sidebar .sidebar-active {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+
+/* Sidebar Header */
+
+.glass-sidebar > div > div:first-child {
+    background: transparent;
+}
+
+
+/* Smooth Glass Animation */
+
+.glass-sidebar {
+    will-change: transform;
+}
+
+
+/* Mobile performance */
+
+@media (max-width: 768px) {
+
+    .glass-sidebar {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+
+}
+
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .glass-sidebar,
+    .glass-sidebar .sidebar-link {
+        transition: none;
+    }
+
+}
+
+/* ===========================
+   Modern Mobile Sidebar
+=========================== */
+
+/* Default navigation links */
+
+.sidebar-link {
+  color: var(--text-muted);
+  position: relative;
+}
+
+/* Hover effect */
+
+.sidebar-link:hover {
+  background-color: var(--surface-muted);
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+/* Active page */
+
+.sidebar-active {
+  background-color: var(--accent-soft);
+  color: var(--accent) !important;
+  font-weight: 600;
+}
+
+/* Active indicator */
+
+.sidebar-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 25%;
+  height: 50%;
+  width: 3px;
+  border-radius: 10px;
+  background-color: var(--accent);
+}
+
+/* Sidebar entrance animation */
+
+@keyframes sidebarItemFade {
+
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+}
+
+#mobile-menu:not(.translate-x-full) .sidebar-link {
+  animation: sidebarItemFade 0.4s ease both;
+}
+
+/* Staggered animation */
+
+#mobile-menu:not(.translate-x-full) .sidebar-link:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+#mobile-menu:not(.translate-x-full) .sidebar-link:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+#mobile-menu:not(.translate-x-full) .sidebar-link:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+#mobile-menu:not(.translate-x-full) .sidebar-link:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+/* Better sidebar scrolling */
+
+#mobile-menu {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Light mode overlay */
+
+.glass-overlay {
+    background: rgba(16, 20, 27, 0.25);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+
+/* Dark mode overlay */
+
+html.dark .glass-overlay {
+    background: rgba(0, 0, 0, 0.55);
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* Decorative teal glow */
+
+.glass-sidebar::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    top: -100px;
+    right: -100px;
+
+    background: radial-gradient(
+        circle,
+        rgba(15, 139, 141, 0.18),
+        transparent 70%
+    );
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* Dark mode teal glow */
+
+html.dark .glass-sidebar::before {
+    background: radial-gradient(
+        circle,
+        rgba(53, 201, 193, 0.16),
+        transparent 70%
+    );
+}
+
+/* Reduced motion support */
+
+@media (prefers-reduced-motion: reduce) {
+
+  #mobile-menu:not(.translate-x-full) .sidebar-link {
+    animation: none;
+  }
+
+}
   </style>
 </head>
 <body class="font-sans antialiased" style="background-color:var(--bg); color:var(--text);">
@@ -192,6 +430,8 @@ function openSidebar() {
 
   menuClose.focus();
 
+  menuBtn.setAttribute('aria-expanded', 'true');
+
 }
 
 
@@ -209,6 +449,8 @@ function closeSidebar() {
   mobileMenu.setAttribute('aria-hidden', 'true');
 
   mobileMenu.setAttribute('inert', '');
+
+  menuBtn.setAttribute('aria-expanded', 'false');
 
   if (previousFocus && typeof previousFocus.focus === 'function') {
     previousFocus.focus();
