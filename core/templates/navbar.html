@@ -1,50 +1,262 @@
 {% load static %}
-<header class="w-full sticky top-0 z-50 border-b" style="background-color:var(--bg); border-color:var(--border);">
+
+<header class="w-full sticky top-0 z-40 border-b"
+        style="background-color:var(--bg); border-color:var(--border);">
+
   <nav class="max-w-7xl mx-auto px-6 lg:px-16 h-18 lg:h-20 flex items-center justify-between py-3">
 
-    <a href="{% url 'home' %}" class="text-lg lg:text-xl font-display font-bold tracking-tight" style="color:var(--text);">
+    <!-- Logo -->
+    <a href="{% url 'home' %}"
+       class="text-lg lg:text-xl font-display font-bold tracking-tight"
+       style="color:var(--text);">
+
       Rehan<span style="color:var(--accent);">.dev</span>
+
     </a>
 
-    <div class="hidden lg:flex items-center gap-9 text-sm font-medium">
-      <a href="{% url 'home' %}#services" class="transition hover:opacity-70" style="color:var(--text-muted);">Services</a>
-      <a href="{% url 'experience' %}" class="transition hover:opacity-70" style="color:var(--text-muted);">Experience</a>
-      <a href="{% url 'projects' %}" class="transition hover:opacity-70" style="color:var(--text-muted);">Projects</a>
 
-      <button type="button" data-theme-toggle aria-label="Toggle dark and light theme"
+    <!-- Desktop Navigation -->
+    <div class="hidden lg:flex items-center gap-9 text-sm font-medium">
+
+      <a href="{% url 'home' %}#services"
+         class="transition hover:opacity-70"
+         style="color:var(--text-muted);">
+        Services
+      </a>
+
+      <a href="{% url 'experience' %}"
+         class="transition hover:opacity-70"
+         style="color:var(--text-muted);">
+        Experience
+      </a>
+
+      <a href="{% url 'projects' %}"
+         class="transition hover:opacity-70"
+         style="color:var(--text-muted);">
+        Projects
+      </a>
+
+
+      <!-- Desktop Theme Toggle -->
+      <button type="button"
+              data-theme-toggle
+              aria-label="Toggle dark and light theme"
               class="w-10 h-10 rounded-full flex items-center justify-center transition"
               style="background-color:var(--surface-muted); color:var(--text);">
-        <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21M4.5 12H3M21 12h-1.5M5.6 5.6l1.1 1.1M17.3 17.3l1.1 1.1M18.4 5.6l-1.1 1.1M6.7 17.3l-1.1 1.1M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-        <svg class="w-4 h-4 hidden dark:block" fill="currentColor" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+
+        <svg class="w-4 h-4 dark:hidden"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             viewBox="0 0 24 24">
+
+          <path stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3v1.5M12 19.5V21M4.5 12H3M21 12h-1.5M5.6 5.6l1.1 1.1M17.3 17.3l1.1 1.1M18.4 5.6l-1.1 1.1M6.7 17.3l-1.1 1.1M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+
+        </svg>
+
+        <svg class="w-4 h-4 hidden dark:block"
+             fill="currentColor"
+             viewBox="0 0 24 24">
+
+          <path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/>
+
+        </svg>
+
       </button>
 
+
+      <!-- Desktop Contact -->
       <a href="{% url 'contact' %}"
          class="px-5 py-2.5 rounded-lg font-semibold text-sm transition hover:opacity-90"
          style="background-color:var(--accent); color:#0a0f10;">
+
         Contact me
+
       </a>
+
     </div>
 
-    <div class="flex items-center gap-2 lg:hidden">
-      <button type="button" data-theme-toggle aria-label="Toggle dark and light theme"
+
+    <!-- Mobile Buttons -->
+    <div class="flex items-center gap-3 lg:hidden">
+
+      <!-- Mobile Theme Toggle -->
+      <button type="button"
+              data-theme-toggle
+              aria-label="Toggle dark and light theme"
               class="w-10 h-10 rounded-full flex items-center justify-center"
               style="background-color:var(--surface-muted); color:var(--text);">
-        <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21M4.5 12H3M21 12h-1.5M5.6 5.6l1.1 1.1M17.3 17.3l1.1 1.1M18.4 5.6l-1.1 1.1M6.7 17.3l-1.1 1.1M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-        <svg class="w-4 h-4 hidden dark:block" fill="currentColor" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+
+        <svg class="w-4 h-4 dark:hidden"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             viewBox="0 0 24 24">
+
+          <path stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3v1.5M12 19.5V21M4.5 12H3M21 12h-1.5M5.6 5.6l1.1 1.1M17.3 17.3l1.1 1.1M18.4 5.6l-1.1 1.1M6.7 17.3l-1.1 1.1M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+
+        </svg>
+
+        <svg class="w-4 h-4 hidden dark:block"
+             fill="currentColor"
+             viewBox="0 0 24 24">
+
+          <path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/>
+
+        </svg>
+
       </button>
-      <button type="button" id="mobile-menu-btn" aria-label="Open menu"
-              class="w-10 h-10 rounded-full flex items-center justify-center"
-              style="background-color:var(--surface-muted); color:var(--text);">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+
+
+      <!-- Hamburger -->
+      <button type="button"
+              id="mobile-menu-btn"
+              aria-label="Open navigation menu"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+              class="w-10 h-10 rounded-full border flex items-center justify-center"
+              style="border-color:var(--border); background-color:var(--surface-muted); color:var(--text);">
+
+        <svg class="w-5 h-5"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             viewBox="0 0 24 24">
+
+          <path stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 7h16M4 12h16M4 17h16"/>
+
+        </svg>
+
       </button>
+
     </div>
+
   </nav>
 
-  <div id="mobile-menu" class="hidden lg:hidden border-t px-6 py-4 flex flex-col gap-4 text-sm font-medium"
-       style="border-color:var(--border); background-color:var(--bg);">
-    <a href="{% url 'home' %}#services" style="color:var(--text);">Services</a>
-    <a href="{% url 'experience' %}" style="color:var(--text);">Experience</a>
-    <a href="{% url 'projects' %}" style="color:var(--text);">Projects</a>
-    <a href="{% url 'contact' %}" class="text-center px-5 py-2.5 rounded-lg font-semibold" style="background-color:var(--accent); color:#0a0f10;">Contact me</a>
-  </div>
 </header>
+
+
+<!-- Mobile Sidebar Overlay -->
+<div id="mobile-overlay"
+     class="fixed inset-0 z-50 bg-black/60 opacity-0 invisible transition-all duration-300 lg:hidden">
+</div>
+
+
+<!-- Mobile Sidebar -->
+<aside id="mobile-menu"
+       role="dialog"
+       aria-modal="true"
+       aria-label="Mobile navigation"
+       aria-hidden="true"
+       inert
+       class="fixed top-0 right-0 h-full w-[82%] max-w-[320px] z-[60] translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
+       style="background-color:var(--surface); box-shadow:-10px 0 40px rgba(0,0,0,0.15);">
+
+  <div class="flex flex-col h-full">
+
+    <!-- Sidebar Header -->
+    <div class="flex items-center justify-between px-6 py-6 border-b"
+         style="border-color:var(--border);">
+
+      <span class="font-display text-lg font-bold"
+            style="color:var(--text);">
+
+        Rehan<span style="color:var(--accent);">.dev</span>
+
+      </span>
+
+
+      <!-- Close Button -->
+      <button id="mobile-menu-close"
+              type="button"
+              aria-label="Close navigation menu"
+              class="w-10 h-10 rounded-full flex items-center justify-center"
+              style="background-color:var(--surface-muted); color:var(--text);">
+
+        <svg class="w-5 h-5"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             viewBox="0 0 24 24">
+
+          <path stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 6l12 12M18 6L6 18"/>
+
+        </svg>
+
+      </button>
+
+    </div>
+
+
+    <!-- Sidebar Links -->
+    <nav class="flex flex-col gap-2 px-5 py-8 text-sm font-medium">
+
+      <a href="{% url 'home' %}"
+         class="mobile-nav-link px-4 py-3 rounded-xl transition"
+         style="color:var(--text);">
+
+        Home
+
+      </a>
+
+      <a href="{% url 'home' %}#services"
+         class="mobile-nav-link px-4 py-3 rounded-xl transition"
+         style="color:var(--text);">
+
+        Services
+
+      </a>
+
+      <a href="{% url 'experience' %}"
+         class="mobile-nav-link px-4 py-3 rounded-xl transition"
+         style="color:var(--text);">
+
+        Experience
+
+      </a>
+
+      <a href="{% url 'projects' %}"
+         class="mobile-nav-link px-4 py-3 rounded-xl transition"
+         style="color:var(--text);">
+
+        Projects
+
+      </a>
+
+
+      <!-- Contact Button -->
+      <a href="{% url 'contact' %}"
+         class="mobile-nav-link text-center px-5 py-3 rounded-xl font-semibold mt-5"
+         style="background-color:var(--accent); color:#0a0f10;">
+
+        Contact me
+
+      </a>
+
+    </nav>
+
+
+    <!-- Sidebar Footer -->
+    <div class="mt-auto px-6 py-6 border-t"
+         style="border-color:var(--border);">
+
+      <p class="text-xs"
+         style="color:var(--text-muted);">
+
+        © {% now "Y" %} Muhammad Shaheem ur Rehan
+
+      </p>
+
+    </div>
+
+  </div>
+
+</aside>

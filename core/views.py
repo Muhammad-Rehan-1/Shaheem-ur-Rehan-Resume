@@ -1,8 +1,4 @@
-from django.shortcuts import render, redirect
-from django.core.mail import send_mail
-from django.contrib import messages
-from django.conf import settings
-from .forms import ContactForm
+from django.shortcuts import render
 
 SKILL_GROUPS = [
     {
@@ -112,10 +108,26 @@ PROJECT_GROUPS = [
 ]
 
 CERTIFICATIONS = [
-    {"title": "Generative AI: Introduction & Applications", "issuer": "IBM / Coursera"},
-    {"title": "AWS Certified DevOps Engineer – Professional", "issuer": "AWS / Coursera"},
-    {"title": "Using Python to Interact with the Operating System", "issuer": "Google / Coursera"},
-    {"title": "Google Crash Course on Python", "issuer": "Google / Coursera"},
+    {
+        "title": "Generative AI: Introduction & Applications",
+        "issuer": "IBM / Coursera",
+        "url": "https://www.coursera.org/account/accomplishments/verify/GBA8V50RBT95"
+    },
+    {
+        "title": "AWS Certified DevOps Engineer – Professional",
+        "issuer": "AWS / Coursera",
+        "url": "https://www.coursera.org/account/accomplishments/verify/ZILDSMAT9859"
+    },
+    {
+        "title": "Using Python to Interact with the Operating System",
+        "issuer": "Google / Coursera",
+        "url": "https://www.coursera.org/account/accomplishments/verify/519FYLLET6R5"
+    },
+    {
+        "title": "Google Crash Course on Python",
+        "issuer": "Google / Coursera",
+        "url": "https://www.coursera.org/account/accomplishments/verify/3VJYOT44WU71"
+    },
 ]
 
 
@@ -131,32 +143,6 @@ def experience_view(request):
     return render(request, "experience.html", {"certifications": CERTIFICATIONS})
 
 
+
 def contact_view(request):
-    if request.method == "POST":
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data["name"]
-            sender_email = form.cleaned_data["email"]
-            subject = form.cleaned_data["subject"]
-            message_body = form.cleaned_data["message"]
-
-            full_content = f"Sender Name: {name}\nSender Email: {sender_email}\n\nMessage:\n{message_body}"
-
-            try:
-                send_mail(
-                    subject=f"[Portfolio Contact] {subject}",
-                    message=full_content,
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    recipient_list=["shaheemurrehan2005@gmail.com"],
-                    fail_silently=False,
-                )
-                messages.success(request, "Your message has been sent successfully. I will get back to you shortly!")
-                return redirect("contact")
-            except Exception:
-                messages.error(request, "Failed to send email. Please verify SMTP settings or try again later.")
-        else:
-            messages.error(request, "Please correct the errors in the form before submitting.")
-    else:
-        form = ContactForm()
-
-    return render(request, "contact.html", {"form": form})
+    return render(request, "contact.html")
